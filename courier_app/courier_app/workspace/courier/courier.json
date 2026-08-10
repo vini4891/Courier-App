@@ -1,0 +1,125 @@
+{
+ "app": "courier_app",
+ "charts": [],
+ "content": "[{\"id\":\"cah1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Courier App</b></span>\",\"col\":12}},{\"id\":\"cah2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"In-Flight Parcels\",\"col\":3}},{\"id\":\"cah3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Parcel\",\"col\":3}},{\"id\":\"cah4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Scan Event\",\"col\":3}},{\"id\":\"cah5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hub\",\"col\":3}},{\"id\":\"cah6\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"cah7\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Setup</b></span>\",\"col\":12}},{\"id\":\"cah8\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}},{\"id\":\"cah9\",\"type\":\"card\",\"data\":{\"card_name\":\"Settings\",\"col\":4}}]",
+ "creation": "2026-08-06 00:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "non-profit",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Courier",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Masters",
+   "link_count": 3,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Hub",
+   "link_count": 0,
+   "link_to": "Hub",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Delivery Agent",
+   "link_count": 0,
+   "link_to": "Delivery Agent",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Service Level",
+   "link_count": 0,
+   "link_to": "Service Level",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Settings",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Courier Settings",
+   "link_count": 0,
+   "link_to": "Courier Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Courier Razorpay Settings",
+   "link_count": 0,
+   "link_to": "Courier Razorpay Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-08-06 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Courier App",
+ "name": "Courier",
+ "number_cards": [],
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": null,
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "In-Flight Parcels",
+   "link_to": "In-Flight Parcels",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Parcel",
+   "link_to": "Parcel",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Scan Event",
+   "link_to": "Scan Event",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "Hub",
+   "link_to": "Hub",
+   "type": "DocType"
+  }
+ ],
+ "title": "Courier"
+}

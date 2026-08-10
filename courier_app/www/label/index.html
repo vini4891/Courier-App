@@ -1,0 +1,37 @@
+{% extends "templates/web.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block header %}<h2>{{ title }}</h2>{% endblock %}
+
+{% block page_content %}
+<link rel="stylesheet" href="/assets/courier_app/css/courier_portal.css">
+
+<div class="courier-card">
+	<div class="courier-banner courier-banner-success" style="display:block;">
+		Payment confirmed - your label is ready.
+	</div>
+
+	<div style="text-align:center;">
+		<img src="data:image/svg+xml;base64,{{ qr_base64 }}" width="220" height="220" alt="Parcel QR code">
+		<p><b>{{ parcel.name }}</b></p>
+	</div>
+
+	<table class="courier-table">
+		<tr><td>From</td><td>{{ parcel.sender_name }}, {{ parcel.sender_city }}</td></tr>
+		<tr><td>To</td><td>{{ parcel.recipient_name }}, {{ parcel.recipient_city }}</td></tr>
+		<tr><td>Service Level</td><td>{{ parcel.service_level }}</td></tr>
+		<tr><td>Weight</td><td>{{ parcel.weight_kg }} kg</td></tr>
+	</table>
+
+	<br>
+	<a class="courier-btn" style="text-decoration:none; display:inline-block;"
+		href="/api/method/courier_app.courier_app.api.download_label_pdf?parcel={{ parcel.name | urlencode }}">
+		Download PDF Label
+	</a>
+	<a class="courier-btn" style="text-decoration:none; display:inline-block; background:#6c7680;"
+		href="/track?parcel={{ parcel.name | urlencode }}">
+		Track this Parcel
+	</a>
+</div>
+{% endblock %}

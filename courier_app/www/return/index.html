@@ -1,0 +1,22 @@
+{% extends "templates/web.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block header %}<h2>{{ title }}</h2>{% endblock %}
+
+{% block page_content %}
+<link rel="stylesheet" href="/assets/courier_app/css/courier_portal.css">
+<script>
+	window.CSRF_TOKEN = "{{ csrf_token }}";
+	window.PARCEL_NAME = "{{ parcel.name }}";
+</script>
+<script src="/assets/courier_app/js/courier_portal.js"></script>
+
+<div class="courier-card">
+	<div id="courier-banner" class="courier-banner"></div>
+	<p>This parcel was delivered from <b>{{ parcel.sender_city }}</b> to <b>{{ parcel.recipient_city }}</b>.
+	Raising a return will create a new shipment carrying it back from <b>{{ parcel.recipient_city }}</b>
+	to <b>{{ parcel.sender_city }}</b>, at no additional charge.</p>
+	<button class="courier-btn" id="return-btn">Confirm Return</button>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{
+ "creation": "2026-08-06 00:00:00.000000",
+ "custom_format": 1,
+ "disabled": 0,
+ "doc_type": "Parcel",
+ "doctype": "Print Format",
+ "font": "Default",
+ "html": "<div style=\"width: 10cm; margin: 0 auto; font-family: Arial, sans-serif; border: 1px solid #000; padding: 10px;\">\n\t<div style=\"text-align:center; border-bottom: 2px solid #000; padding-bottom: 6px; margin-bottom: 8px;\">\n\t\t<div style=\"font-size: 16px; font-weight: bold;\">{{ frappe.db.get_single_value('Courier Settings', 'company_display_name') or 'Courier App' }}</div>\n\t\t<div style=\"font-size: 11px;\">Shipping Label{% if doc.is_return %} - RETURN{% endif %}</div>\n\t</div>\n\n\t<div style=\"text-align:center; margin-bottom: 8px;\">\n\t\t<img src=\"data:image/svg+xml;base64,{{ parcel_label_qr(doc.token) }}\" style=\"width:130px; height:130px;\">\n\t\t<div style=\"font-size: 13px; font-weight: bold; letter-spacing: 1px;\">{{ doc.name }}</div>\n\t</div>\n\n\t<table style=\"width:100%; font-size: 11px; border-collapse: collapse;\">\n\t\t<tr>\n\t\t\t<td style=\"width:50%; vertical-align:top; border: 1px solid #ccc; padding:6px;\">\n\t\t\t\t<b>FROM</b><br>\n\t\t\t\t{{ doc.sender_name }}<br>\n\t\t\t\t{{ doc.sender_address_line1 }}<br>\n\t\t\t\t{% if doc.sender_address_line2 %}{{ doc.sender_address_line2 }}<br>{% endif %}\n\t\t\t\t{{ doc.sender_city }}{% if doc.sender_state %}, {{ doc.sender_state }}{% endif %} - {{ doc.sender_pincode }}<br>\n\t\t\t\t{{ doc.sender_phone }}\n\t\t\t</td>\n\t\t\t<td style=\"width:50%; vertical-align:top; border: 1px solid #ccc; padding:6px;\">\n\t\t\t\t<b>TO</b><br>\n\t\t\t\t{{ doc.recipient_name }}<br>\n\t\t\t\t{{ doc.recipient_address_line1 }}<br>\n\t\t\t\t{% if doc.recipient_address_line2 %}{{ doc.recipient_address_line2 }}<br>{% endif %}\n\t\t\t\t{{ doc.recipient_city }}{% if doc.recipient_state %}, {{ doc.recipient_state }}{% endif %} - {{ doc.recipient_pincode }}<br>\n\t\t\t\t{{ doc.recipient_phone }}\n\t\t\t</td>\n\t\t</tr>\n\t</table>\n\n\t<table style=\"width:100%; font-size: 11px; margin-top:8px; border-collapse: collapse;\">\n\t\t<tr>\n\t\t\t<td style=\"border: 1px solid #ccc; padding:6px;\"><b>Service Level</b><br>{{ doc.service_level }}</td>\n\t\t\t<td style=\"border: 1px solid #ccc; padding:6px;\"><b>Weight</b><br>{{ doc.weight_kg }} kg</td>\n\t\t\t<td style=\"border: 1px solid #ccc; padding:6px;\"><b>Route</b><br>{{ doc.origin_hub }} &rarr; {{ doc.destination_hub }}</td>\n\t\t</tr>\n\t</table>\n\n\t<div style=\"text-align:center; font-size: 10px; margin-top:10px; color:#555;\">\n\t\tTrack at {{ frappe.utils.get_url() }}/track?token={{ doc.token }}\n\t</div>\n</div>\n",
+ "line_breaks": 0,
+ "margin_bottom": 8.0,
+ "margin_left": 8.0,
+ "margin_right": 8.0,
+ "margin_top": 8.0,
+ "modified": "2026-08-06 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Courier App",
+ "name": "Courier Shipping Label",
+ "owner": "Administrator",
+ "print_format_type": "Jinja",
+ "raw_printing": 0,
+ "standard": "Yes"
+}

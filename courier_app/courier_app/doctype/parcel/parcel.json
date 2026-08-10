@@ -1,0 +1,404 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "format:PARCEL-{YYYY}-{#####}",
+ "creation": "2026-08-06 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "booked_by",
+  "is_return",
+  "original_parcel",
+  "status",
+  "column_break_p1",
+  "payment_status",
+  "current_hub",
+  "sender_tab",
+  "sender_name",
+  "sender_phone",
+  "sender_email",
+  "column_break_sender",
+  "sender_address_line1",
+  "sender_address_line2",
+  "sender_city",
+  "sender_state",
+  "sender_pincode",
+  "sender_country",
+  "recipient_tab",
+  "recipient_name",
+  "recipient_phone",
+  "recipient_email",
+  "column_break_recipient",
+  "recipient_address_line1",
+  "recipient_address_line2",
+  "recipient_city",
+  "recipient_state",
+  "recipient_pincode",
+  "recipient_country",
+  "shipment_tab",
+  "origin_hub",
+  "destination_hub",
+  "service_level",
+  "column_break_shipment",
+  "weight_kg",
+  "length_cm",
+  "width_cm",
+  "height_cm",
+  "declared_value",
+  "shipping_charge",
+  "payment_tab",
+  "razorpay_order_id",
+  "razorpay_payment_id",
+  "column_break_payment",
+  "token",
+  "booked_on",
+  "exception_tab",
+  "pre_exception_status",
+  "exception_reason"
+ ],
+ "fields": [
+  {
+   "fieldname": "booked_by",
+   "fieldtype": "Link",
+   "label": "Booked By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_return",
+   "fieldtype": "Check",
+   "label": "Is Return",
+   "read_only": 1
+  },
+  {
+   "depends_on": "is_return",
+   "fieldname": "original_parcel",
+   "fieldtype": "Link",
+   "label": "Original Parcel",
+   "options": "Parcel",
+   "read_only": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nBooked & Paid\nPicked Up\nIn at Origin Hub\nIn Transit\nIn at Destination Hub\nOut for Delivery\nDelivered\nDelivery Failed\nStuck at Hub",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_p1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Payment Status",
+   "options": "Pending\nPaid\nWaived\nFailed\nRefunded",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "current_hub",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Current Hub",
+   "options": "Hub",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sender_tab",
+   "fieldtype": "Tab Break",
+   "label": "Sender"
+  },
+  {
+   "fieldname": "sender_name",
+   "fieldtype": "Data",
+   "label": "Sender Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sender_phone",
+   "fieldtype": "Data",
+   "label": "Sender Phone",
+   "options": "Phone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sender_email",
+   "fieldtype": "Data",
+   "label": "Sender Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "column_break_sender",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sender_address_line1",
+   "fieldtype": "Data",
+   "label": "Address Line 1",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sender_address_line2",
+   "fieldtype": "Data",
+   "label": "Address Line 2"
+  },
+  {
+   "fieldname": "sender_city",
+   "fieldtype": "Data",
+   "label": "City",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sender_state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "sender_pincode",
+   "fieldtype": "Data",
+   "label": "Pincode",
+   "reqd": 1
+  },
+  {
+   "default": "India",
+   "fieldname": "sender_country",
+   "fieldtype": "Data",
+   "label": "Country"
+  },
+  {
+   "fieldname": "recipient_tab",
+   "fieldtype": "Tab Break",
+   "label": "Recipient"
+  },
+  {
+   "fieldname": "recipient_name",
+   "fieldtype": "Data",
+   "label": "Recipient Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "recipient_phone",
+   "fieldtype": "Data",
+   "label": "Recipient Phone",
+   "options": "Phone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "recipient_email",
+   "fieldtype": "Data",
+   "label": "Recipient Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "column_break_recipient",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "recipient_address_line1",
+   "fieldtype": "Data",
+   "label": "Address Line 1",
+   "reqd": 1
+  },
+  {
+   "fieldname": "recipient_address_line2",
+   "fieldtype": "Data",
+   "label": "Address Line 2"
+  },
+  {
+   "fieldname": "recipient_city",
+   "fieldtype": "Data",
+   "label": "City",
+   "reqd": 1
+  },
+  {
+   "fieldname": "recipient_state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "recipient_pincode",
+   "fieldtype": "Data",
+   "label": "Pincode",
+   "reqd": 1
+  },
+  {
+   "default": "India",
+   "fieldname": "recipient_country",
+   "fieldtype": "Data",
+   "label": "Country"
+  },
+  {
+   "fieldname": "shipment_tab",
+   "fieldtype": "Tab Break",
+   "label": "Shipment"
+  },
+  {
+   "fieldname": "origin_hub",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Origin Hub",
+   "options": "Hub",
+   "reqd": 1
+  },
+  {
+   "fieldname": "destination_hub",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Destination Hub",
+   "options": "Hub",
+   "reqd": 1
+  },
+  {
+   "fieldname": "service_level",
+   "fieldtype": "Link",
+   "label": "Service Level",
+   "options": "Service Level",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_shipment",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "weight_kg",
+   "fieldtype": "Float",
+   "label": "Weight (Kg)",
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "fieldname": "length_cm",
+   "fieldtype": "Float",
+   "label": "Length (cm)"
+  },
+  {
+   "fieldname": "width_cm",
+   "fieldtype": "Float",
+   "label": "Width (cm)"
+  },
+  {
+   "fieldname": "height_cm",
+   "fieldtype": "Float",
+   "label": "Height (cm)"
+  },
+  {
+   "fieldname": "declared_value",
+   "fieldtype": "Currency",
+   "label": "Declared Value"
+  },
+  {
+   "fieldname": "shipping_charge",
+   "fieldtype": "Currency",
+   "label": "Shipping Charge",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_tab",
+   "fieldtype": "Tab Break",
+   "label": "Payment & Token"
+  },
+  {
+   "fieldname": "razorpay_order_id",
+   "fieldtype": "Data",
+   "label": "Razorpay Order ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "razorpay_payment_id",
+   "fieldtype": "Data",
+   "label": "Razorpay Payment ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_payment",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "token",
+   "fieldtype": "Data",
+   "label": "Tracking Token",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "booked_on",
+   "fieldtype": "Datetime",
+   "label": "Booked On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "exception_tab",
+   "fieldtype": "Tab Break",
+   "label": "Exception"
+  },
+  {
+   "fieldname": "pre_exception_status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Pre-exception Status",
+   "options": "\nDraft\nBooked & Paid\nPicked Up\nIn at Origin Hub\nIn Transit\nIn at Destination Hub\nOut for Delivery\nDelivered",
+   "read_only": 1
+  },
+  {
+   "fieldname": "exception_reason",
+   "fieldtype": "Small Text",
+   "label": "Exception Reason",
+   "read_only": 1
+  }
+ ],
+ "icon": "fa fa-cube",
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-08-06 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Courier App",
+ "name": "Parcel",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Courier Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Delivery Agent"
+  },
+  {
+   "read": 1,
+   "role": "Courier Customer"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

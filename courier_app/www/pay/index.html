@@ -1,0 +1,35 @@
+{% extends "templates/web.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block header %}<h2>{{ title }}</h2>{% endblock %}
+
+{% block page_content %}
+<link rel="stylesheet" href="/assets/courier_app/css/courier_portal.css">
+<script>
+	window.CSRF_TOKEN = "{{ csrf_token }}";
+	window.PARCEL_NAME = "{{ parcel.name }}";
+</script>
+<script src="/assets/courier_app/js/courier_portal.js"></script>
+{# Razorpay Checkout has no self-hosted alternative - this is the one #}
+{# external script this app loads, deliberately, everything else is #}
+{# self-hosted from /assets/frappe/... #}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<div class="courier-card">
+	<div id="courier-banner" class="courier-banner"></div>
+
+	<div class="courier-section-title">Shipment Summary</div>
+	<table class="courier-table">
+		<tr><td>Parcel</td><td>{{ parcel.name }}</td></tr>
+		<tr><td>From</td><td>{{ parcel.sender_city }}</td></tr>
+		<tr><td>To</td><td>{{ parcel.recipient_city }}</td></tr>
+		<tr><td>Service Level</td><td>{{ parcel.service_level }}</td></tr>
+		<tr><td>Weight</td><td>{{ parcel.weight_kg }} kg</td></tr>
+		<tr><td><b>Amount Payable</b></td><td><b>₹{{ "%.2f"|format(parcel.shipping_charge) }}</b></td></tr>
+	</table>
+
+	<br>
+	<button class="courier-btn" id="pay-btn">Pay ₹{{ "%.2f"|format(parcel.shipping_charge) }} with Razorpay</button>
+</div>
+{% endblock %}

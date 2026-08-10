@@ -1,0 +1,55 @@
+{% extends "templates/web.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block header %}<h2>{{ title }}</h2>{% endblock %}
+
+{% block page_content %}
+<link rel="stylesheet" href="/assets/courier_app/css/courier_portal.css">
+<script>window.CSRF_TOKEN = "{{ csrf_token }}";</script>
+<script src="/assets/courier_app/js/courier_portal.js"></script>
+{# html5-qrcode ships with frappe core; base.html already includes #}
+{# frappe-web.bundle.js on every website page, so frappe.require() is #}
+{# available here with no extra script tag needed. #}
+
+<div class="courier-card">
+	<div id="courier-banner" class="courier-banner"></div>
+
+	<div class="courier-row">
+		<div class="courier-field">
+			<label>Scan Type *</label>
+			<select id="scan-type">
+				<option value="Pickup">Pickup (at Origin Hub)</option>
+				<option value="Hub In">Hub In</option>
+				<option value="Hub Out">Hub Out</option>
+				<option value="Delivered">Delivered</option>
+				<option value="Delivery Failed">Delivery Failed</option>
+				<option value="Marked Stuck">Marked Stuck</option>
+			</select>
+		</div>
+		<div class="courier-field" id="hub-field">
+			<label>You are at Hub *</label>
+			<select id="hub-select"></select>
+		</div>
+	</div>
+	<div class="courier-field" id="reason-field" style="display:none;">
+		<label>Reason</label>
+		<input id="failure-reason" placeholder="Reason for failure / stuck">
+	</div>
+
+	<div class="courier-section-title">Camera Scan</div>
+	<div id="courier-scanner-reader"></div>
+	<div style="text-align:center; margin-top:10px;">
+		<button class="courier-btn" id="start-scan-btn">Start Camera</button>
+		<button class="courier-btn courier-btn-danger" id="stop-scan-btn" style="display:none;">Stop Camera</button>
+	</div>
+
+	<div class="courier-section-title">Or Enter Token Manually</div>
+	<div class="courier-row">
+		<div class="courier-field"><input id="manual-token" placeholder="Paste tracking token"></div>
+	</div>
+	<button class="courier-btn" id="manual-submit-btn">Submit Scan</button>
+
+	<div id="scan-result" style="margin-top:18px;"></div>
+</div>
+{% endblock %}

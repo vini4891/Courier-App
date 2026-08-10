@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.frappe
+.eslintcache
+node_modules/
+courier_app/public/dist/
+.DS_Store
+*.log

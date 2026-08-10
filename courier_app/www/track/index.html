@@ -1,0 +1,22 @@
+{% extends "templates/web.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block header %}<h2>{{ title }}</h2>{% endblock %}
+
+{% block page_content %}
+<link rel="stylesheet" href="/assets/courier_app/css/courier_portal.css">
+<script>
+	window.CSRF_TOKEN = "{{ csrf_token }}";
+	window.TRACK_TOKEN = {{ token | tojson }};
+	window.TRACK_PARCEL = {{ parcel_name | tojson }};
+</script>
+<script src="/assets/courier_app/js/courier_portal.js"></script>
+
+<div class="courier-card courier-card-wide">
+	<div id="courier-banner" class="courier-banner"></div>
+	<div id="track-summary"></div>
+	<div class="courier-section-title">Scan History</div>
+	<ul class="courier-timeline" id="track-timeline"></ul>
+</div>
+{% endblock %}

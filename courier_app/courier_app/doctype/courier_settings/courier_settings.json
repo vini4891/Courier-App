@@ -1,0 +1,70 @@
+{
+ "actions": [],
+ "creation": "2026-08-06 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company_display_name",
+  "support_email",
+  "support_phone",
+  "section_break_cs1",
+  "token_signing_secret"
+ ],
+ "fields": [
+  {
+   "fieldname": "company_display_name",
+   "fieldtype": "Data",
+   "label": "Company Display Name (shown on labels)"
+  },
+  {
+   "fieldname": "support_email",
+   "fieldtype": "Data",
+   "label": "Support Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "support_phone",
+   "fieldtype": "Data",
+   "label": "Support Phone"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_cs1",
+   "fieldtype": "Section Break",
+   "label": "Security"
+  },
+  {
+   "description": "Auto-generated on install. Used to sign every parcel's barcode/QR token (HMAC-SHA256). Rotating this invalidates every already-printed label.",
+   "fieldname": "token_signing_secret",
+   "fieldtype": "Password",
+   "label": "Token Signing Secret"
+  }
+ ],
+ "icon": "fa fa-cog",
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-08-06 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Courier App",
+ "name": "Courier Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Courier Manager",
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

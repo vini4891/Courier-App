@@ -1,0 +1,24 @@
+{% extends "templates/web.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block header %}
+<h2>{{ title }}</h2>
+<a class="courier-btn" style="text-decoration:none;" href="/book">+ Book a Parcel</a>
+{% endblock %}
+
+{% block page_content %}
+<link rel="stylesheet" href="/assets/courier_app/css/courier_portal.css">
+<script>window.CSRF_TOKEN = "{{ csrf_token }}";</script>
+<script src="/assets/courier_app/js/courier_portal.js"></script>
+
+<div class="courier-card courier-card-wide">
+	<div id="courier-banner" class="courier-banner"></div>
+	<table class="courier-table" id="parcels-table">
+		<thead>
+			<tr><th>Parcel</th><th>From</th><th>To</th><th>Status</th><th>Payment</th><th></th></tr>
+		</thead>
+		<tbody id="parcels-tbody"><tr><td colspan="6">Loading...</td></tr></tbody>
+	</table>
+</div>
+{% endblock %}
